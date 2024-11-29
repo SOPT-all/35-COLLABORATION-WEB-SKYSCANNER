@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 export const useFlights = () => {
 	const [flights, setFlights] = useState<Flights[]>([]);
-	const [averagePrice, setAveragePrice] = useState<number | null>(null);
+
 	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
@@ -12,15 +12,19 @@ export const useFlights = () => {
 			try {
 				const data: FlightApiResponse = await getFlights();
 				setFlights(data.flights);
-				setAveragePrice(data.averageTotalPrice);
 			} catch (err) {
-				console.error('Failed to fetch wish list:', err);
 				setError('Failed to fetch wish list.');
+				console.log(error);
 			}
 		};
 
 		fetchWishList();
 	}, []);
 
-	return { error, averagePrice, flights };
+	return { flights };
+};
+
+export const fetchMoreFlights = async (): Promise<Flights[]> => {
+	const response: FlightApiResponse = await getFlights(); // API 호출
+	return response.flights; // 추가된 flights 데이터 반환
 };
