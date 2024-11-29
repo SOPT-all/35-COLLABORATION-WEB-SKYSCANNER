@@ -26,5 +26,5 @@ export const useFlights = () => {
 
 export const fetchMoreFlights = async (): Promise<Flights[]> => {
 	const response: FlightApiResponse = await getFlights(); // API 호출
-	return response.flights; // 추가된 flights 데이터 반환
+	return response.flights;
 };
