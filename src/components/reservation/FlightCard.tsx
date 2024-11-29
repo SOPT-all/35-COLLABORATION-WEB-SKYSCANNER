@@ -68,8 +68,8 @@ const FlightCard = ({ flight }: FlightCardProps) => {
 				/>
 			</TopBar>
 			<InfoContainer>
-				<Info time={arrFlightTimeline} airPort={arrAirport} averageTime={arrFlightTime} />
 				<Info time={depFlightTimeline} airPort={depAirport} averageTime={depFlightTime} />
+				<Info time={arrFlightTimeline} airPort={arrAirport} averageTime={arrFlightTime} />
 			</InfoContainer>
 
 			<PriceSelect totalPrice={totalPrice} />
