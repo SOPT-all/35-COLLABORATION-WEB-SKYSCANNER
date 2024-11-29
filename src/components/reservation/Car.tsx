@@ -1,6 +1,6 @@
 import MoreButton from './MoreButton';
 import TabButton from './TabButton';
-import { BagIcon, CarDoorIcon, CarIcon, HeartIcon, ProfileBlackIcon } from '@/assets/svg';
+import { BagIcon, CarDoorIcon, HeartIcon, ProfileBlackIcon } from '@/assets/svg';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -55,8 +55,7 @@ const Car = () => {
 						<Scaled>
 							<HeartIcon />
 						</Scaled>
-
-						<CarIcon />
+						<CarImg src="/src/assets/img/img_car.png" alt='자동차 이미지' />
 					</RightSection>
 				</Top>
 				<Price>₩266,507</Price>
@@ -138,3 +137,5 @@ const Scaled = styled.div`
 	transform: scale(2);
 	padding: 0.3rem;
 `;
+
+const CarImg = styled.img``;

@@ -6,7 +6,6 @@ import RecommendComments from './RecommendComments';
 import {
 	ArrowRightGreyIcon,
 	CalendarBlackIcon,
-	CardBoard,
 	FlightBlackIcon,
 	HotelBlackIcon,
 	NameTagIcon,
@@ -87,7 +86,7 @@ const HomeContents = () => {
 				</ButtonWrapper>
 			</ContentsFAQWrapper>
 			<CardBoardWrapper>
-				<CardBoard />
+				<CardImg src="/src/assets/img/img_cardboard.png" alt="카드 이미지" />
 			</CardBoardWrapper>
 			<PlanWrapper>
 				<PlanTitle>
@@ -215,4 +214,9 @@ const PlanTitle = styled.div`
 		${({ theme }) => theme.fonts.body2_sb_14_new2}
 		color: ${({ theme }) => theme.colors.black}
 	}
+`;
+
+const CardImg = styled.img`
+	width: 34.8rem;
+	height: 117.3rem;
 `;

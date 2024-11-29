@@ -1,5 +1,5 @@
-import AdvisorIcon from '@/assets/svg/ic_advisor.svg?react';
 import LikeBlueIcon from '@/assets/svg/ic_like_blue.svg?react';
+import OwlIcon from '@/assets/svg/ic_owl.svg?react';
 import ScoreIcon from '@/assets/svg/ic_score1.svg?react';
 import StarIcon from '@/assets/svg/ic_star.svg?react';
 import { WishHotelContentCardProps } from '@/types/WishHotelContentCardProps';
@@ -30,7 +30,7 @@ const WishHotelContentCard = ({
 				<WishContentsBottom>
 					<FirstScore>{firstScore}</FirstScore>
 					<SecondScore>{secondScore}</SecondScore>
-					<AdvisorIcon />
+					<OwlIcon />
 					<ScoreIcon />
 					<Review>후기 {reviewCount}개</Review>
 				</WishContentsBottom>
