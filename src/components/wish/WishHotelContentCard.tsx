@@ -1,8 +1,9 @@
-import AdvisorIcon from '@/assets/svg/ic_advisor.svg?react';
 import LikeBlueIcon from '@/assets/svg/ic_like_blue.svg?react';
+import OwlIcon from '@/assets/svg/ic_owl.svg?react';
 import ScoreIcon from '@/assets/svg/ic_score1.svg?react';
 import StarIcon from '@/assets/svg/ic_star.svg?react';
 import { WishHotelContentCardProps } from '@/types/WishHotelContentCardProps';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const WishHotelContentCard = ({
@@ -17,9 +18,30 @@ const WishHotelContentCard = ({
 	hashTag,
 	price,
 }: WishHotelContentCardProps) => {
+	const [isInView, setIsInView] = useState(false);
+	const imageRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					setIsInView(true);
+					observer.disconnect();
+				}
+			},
+			{ threshold: 0.1 },
+		);
+
+		if (imageRef.current) {
+			observer.observe(imageRef.current);
+		}
+
+		return () => observer.disconnect();
+	}, []);
+
 	return (
-		<WishHotelContentWrapper>
-			<WishHotelImg src={image} alt={name} />
+		<WishHotelContentWrapper ref={imageRef}>
+			{isInView ? <WishHotelImg src={image} alt={name} /> : <Placeholder />}
 			<LikeBlueIconStyled />
 			<WishContentsContainer>
 				<WishContentsTop>
@@ -30,7 +52,7 @@ const WishHotelContentCard = ({
 				<WishContentsBottom>
 					<FirstScore>{firstScore}</FirstScore>
 					<SecondScore>{secondScore}</SecondScore>
-					<AdvisorIcon />
+					<OwlIcon />
 					<ScoreIcon />
 					<Review>후기 {reviewCount}개</Review>
 				</WishContentsBottom>
@@ -63,6 +85,12 @@ const WishHotelImg = styled.img`
 	width: 33.3rem;
 	height: 16.4rem;
 	object-fit: cover;
+`;
+
+const Placeholder = styled.div`
+	width: 33.3rem;
+	height: 16.4rem;
+	background-color: ${({ theme }) => theme.colors.grey20};
 `;
 
 const LikeBlueIconStyled = styled(LikeBlueIcon)`
