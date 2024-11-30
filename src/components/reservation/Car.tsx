@@ -55,7 +55,10 @@ const Car = () => {
 						<Scaled>
 							<HeartIcon />
 						</Scaled>
-						<CarImg src="/src/assets/img/img_car.png" alt='자동차 이미지' />
+						<CarImg
+							src="https://github.com/user-attachments/assets/839d7829-0659-4a1a-a4a9-03ee04f4a369"
+							alt="자동차 이미지"
+						/>
 					</RightSection>
 				</Top>
 				<Price>₩266,507</Price>
