@@ -86,7 +86,7 @@ const HomeContents = () => {
 				</ButtonWrapper>
 			</ContentsFAQWrapper>
 			<CardBoardWrapper>
-				<CardImg src="/src/assets/img/img_cardboard.png" alt="카드 이미지" />
+				<CardImg src="https://github.com/user-attachments/assets/60102b92-1ce2-4b3d-a1a9-1c999591ae9f" alt="카드 이미지" />
 			</CardBoardWrapper>
 			<PlanWrapper>
 				<PlanTitle>
