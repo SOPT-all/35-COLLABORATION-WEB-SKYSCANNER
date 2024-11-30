@@ -5,6 +5,7 @@ import PriceModal from '@/components/home/PriceModal.tsx';
 import { flexCssGenerator } from '@/styles/customStyle.ts';
 import { dateHandler } from '@/utils/dateHandler.ts';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const CalenderModal = () => {
@@ -17,12 +18,17 @@ const CalenderModal = () => {
 	const onFilterClick = (filter: 'round' | 'oneway') => {
 		setFilter(filter);
 	};
+	const navigate = useNavigate();
 
 	return (
 		<CalenderContainer>
 			<ContentsWrap>
 				<Header>
-					<ArrowLeftBlackIcon />
+					<ArrowLeftBlackIcon
+						onClick={() => {
+							navigate(-1);
+						}}
+					/>
 					<ModalTitle>날짜 선택</ModalTitle>
 				</Header>
 				<Information>
